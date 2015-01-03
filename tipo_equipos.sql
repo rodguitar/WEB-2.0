@@ -1,0 +1,25 @@
+DROP TABLE IF EXISTS "tipo_equipos";
+CREATE TABLE `tipo_equipos` (
+  `Id` integer  auto_increment,
+  `nombre_equipo` char(50),
+  `tipo_equipo` integer,
+  PRIMARY KEY  (`Id`)
+);
+INSERT INTO "tipo_equipos" VALUES(14,'TRASLADO DE PERSONAL',2);
+INSERT INTO "tipo_equipos" VALUES(13,'RODILLO',2);
+INSERT INTO "tipo_equipos" VALUES(12,'RETROEXCAVADORA',2);
+INSERT INTO "tipo_equipos" VALUES(11,'PLANTA PROCESADORA DE ARIDOS',2);
+INSERT INTO "tipo_equipos" VALUES(10,'MOTONIVELADORA',2);
+INSERT INTO "tipo_equipos" VALUES(9,'EXCAVADORA',2);
+INSERT INTO "tipo_equipos" VALUES(8,'CARRO TOLVA',2);
+INSERT INTO "tipo_equipos" VALUES(7,'CARGADOR FRONTAL',2);
+INSERT INTO "tipo_equipos" VALUES(6,'CAMIONETA',2);
+INSERT INTO "tipo_equipos" VALUES(5,'CAMION TOLVA',3);
+INSERT INTO "tipo_equipos" VALUES(4,'CAMION PETROLERO',2);
+INSERT INTO "tipo_equipos" VALUES(3,'CAMION ALJIBES',2);
+INSERT INTO "tipo_equipos" VALUES(2,'CAMA BAJA',2);
+INSERT INTO "tipo_equipos" VALUES(1,'CENTRO COSTO',1);
+INSERT INTO "tipo_equipos" VALUES(15,'TRASLADO DE EQUIPOS',0);
+INSERT INTO "tipo_equipos" VALUES(16,'CARRO TIRO/COMEDOR',0);
+INSERT INTO "tipo_equipos" VALUES(17,'MAQUINARIA MENOR',2);
+INSERT INTO "tipo_equipos" VALUES(18,'CAMION BATEA',2);
