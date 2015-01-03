@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+	<head>
+
+		<title>Inciar Sesión</title>
+		<h1 align="center">PIRINEOS</h1>
+		<style type=text/css>{{ get_resource_as_string('static/estilo.css') }}</style>
+	</head>
+	<body>
+		<form class="inscripcion" method="post" action="#" >
+
+			<table align="center" width="800" >
+				<div>{{ error }}</div>
+				<tr>
+				<td><label><span>Rut</span></td>
+				<td><input type="text" name="Rut" id="rut" ></td></label>
+				</tr>
+				<tr>
+				<td><label><span>Clave</span></td>
+				<td><input type="text" name="clave" id="clave" ></td></label>
+				</tr>
+				<tr><td><label> <span>&nbsp;</span> </td><td><button type="submit">Enviar</button></td></label></tr>
+			</table>
+		</form>
+	</body>
+</html>
