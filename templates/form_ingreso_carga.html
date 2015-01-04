@@ -4,12 +4,12 @@
 <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="">
-	<link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+  <meta name="description" content="">
+  <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="http://getbootstrap.com/examples/starter-template/starter-template.css" rel="stylesheet">
-	
+
     <title>Ingreso de carga</title>
 
     <!-- Bootstrap -->
@@ -35,16 +35,16 @@
             <span class="icon-bar"></span>
           </button>
          <a href="/"class="navbar-brand">Pirineos</a>
-		 
-		 
+
+
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li> <a href="/ingresar_carga">Ingresar información de carga</a></li>
             <li><a href="/ingresar_disponibilidad">Ingresar disponibilidad</a></li>
-            <li><a href="/ingresar_guias">Ingresar guías de transporte</a></li>
+            <li><a href="/salir">Cerrar Sesión</a></li>
           </ul>
-		  <form class="navbar-form navbar-right">
+      <form class="navbar-form navbar-right">
             <button align="right" type="logout" class="btn btn-primary">Cerrar sesión</button>
           </form>
         </div><!--/.nav-collapse -->
@@ -57,106 +57,106 @@
 <div align="center">
 <form class="form-horizontal" role="form">
 
-	<div class="form-group">
+  <div class="form-group">
     <label for="fecha" class="col-sm-4 control-label">Fecha</label>
     <div class="col-sm-4">
-	  <input type="date" name="x_fecha1" id="x_fecha1" class="form-control">
-             
+    <input type="date" name="x_fecha1" id="x_fecha1" class="form-control">
+
     </div>
   </div>
-  
+
   <div class="form-group">
     <label for="nvale" class="col-sm-4 control-label">Nº Vale</label>
     <div class="col-sm-4">
-	  
-	  <input type="text" name="txt_nval" type="text" class="form-control" id="txt_nval" >
-             
+
+    <input type="text" name="txt_nval" type="text" class="form-control" id="txt_nval" >
+
     </div>
   </div>
-  
+
   <div class="form-group">
     <label for="petrolero" class="col-sm-4 control-label">Petrolero</label>
     <div class="col-sm-4">
-	  
-	  <select name="slc_petrolero" class="form-control" id="slc_petrolero">
+
+    <select name="slc_petrolero" class="form-control" id="slc_petrolero">
         <option value="0">(Todos los Equipos)</option>
         {% for usuario in usuarios %}
-          <option>{{ usuario[2],usuario[3],usuario[1] }}</option>
+          <option>{{'%s' % usuario[2] }}</option>
         {% endfor %}
       </select>
-             
+
     </div>
   </div>
-  
+
   <div class="form-group">
     <label for="equipo" class="col-sm-4 control-label">Equipo</label>
     <div class="col-sm-4">
-	  
-	  <select name="slc_equipo" class="form-control" id="slc_equipo">
+
+    <select name="slc_equipo" class="form-control" id="slc_equipo">
         <option value="0">(Todos los Equipos)</option>
         {% for usuario2 in usuarios2 %}
-          <option>{{ usuario2[2],usuario2[3] ,usuario2[1]}}</option>
+          <option>{{ '%s' % usuario2[2]}}</option>
         {% endfor %}
 
       </select>
-             
+
     </div>
   </div>
-  
+
   <div class="form-group">
     <label for="predio" class="col-sm-4 control-label">Predio</label>
     <div class="col-sm-4">
-	  
-	<select name="slc_predio" class="form-control" id="slc_predio">
+
+  <select name="slc_predio" class="form-control" id="slc_predio">
         <option value="0">(Todos los Predios)</option>
         {% for usuario3 in usuarios3 %}
           <option>{{ '%s' % usuario3[2] }}</option>
         {% endfor %}
-      </select>  
-             
+      </select>
+
     </div>
   </div>
-	
-	<div class="form-group">
+
+  <div class="form-group">
     <label for="operador" class="col-sm-4 control-label">Operador</label>
     <div class="col-sm-4">
-	  
-       <input name="txt_op" type="text" class="form-control" id="txt_op">      
+
+       <input name="txt_op" type="text" class="form-control" id="txt_op">
     </div>
   </div>
-  
+
   <div class="form-group">
     <label for="horometro" class="col-sm-4 control-label">Horometro</label>
     <div class="col-sm-4">
-	  
-       <input name="txt_hrs" type="text" class="form-control" id="txt_hrs" >      
+
+       <input name="txt_hrs" type="text" class="form-control" id="txt_hrs" >
     </div>
   </div>
-  
+
   <div class="form-group">
     <label for="kilometraje" class="col-sm-4 control-label">Kilometraje</label>
     <div class="col-sm-4">
-	  
-       <input name="txt_km" type="text" class="form-control" id="txt_km" >      
+
+       <input name="txt_km" type="text" class="form-control" id="txt_km" >
     </div>
   </div>
-  
+
   <div class="form-group">
     <label for="Surtidor" class="col-sm-4 control-label">Surtidor</label>
     <div class="col-sm-4">
-	  
-       <input name="txt_sur" type="text" class="form-control" id="txt_sur">      
+
+       <input name="txt_sur" type="text" class="form-control" id="txt_sur">
     </div>
   </div>
-  
+
   <div class="form-group">
     <label for="Litros" class="col-sm-4 control-label">Litros</label>
     <div class="col-sm-4">
-	  
-       <input name="txt_lts" type="text" class="form-control" id="txt_lts" >   
+
+       <input name="txt_lts" type="text" class="form-control" id="txt_lts" >
     </div>
   </div>
-	
+
 </form>
 <input class="btn btn-lg btn-success" name="submit" type="submit" id="submit" formaction="ingresa_vale.php" title="Confirmar" value="Agregar">
 </body>
