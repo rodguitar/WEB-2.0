@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Ingreso</title>
+</head>
+
+<body>
+
+<center><table id="resumen_petroleo" BORDER="1" class="letra1">
+<tr>
+   <td bgcolor="#CCCCCC">PATENTE</td>
+   <td bgcolor="#CCCCCC">CODIGO RADIAL</td>
+   <td bgcolor="#CCCCCC">EQUIPO</td>
+   <td bgcolor="#CCCCCC">LITROS ACUMULADOS</td>
+</tr>
+{% for resumen in resumenes %}
+<tr>
+      <td>{{ '%s' % resumen[0] }}</td>
+      <td>{{ '%s' % resumen[1] }}</td>
+      <td>{{ '%s' % resumen[2] }}</td>
+      <td>{{ '%s' % resumen[3] }}</td>
+</tr>
+{% endfor %}
+
+
+</table>
+</body>
+</html>
