@@ -42,10 +42,14 @@
           <ul class="nav navbar-nav">
             <li> <a href="/ingresar_carga">Ingresar información de carga</a></li>
             <li><a href="/ingresar_disponibilidad">Ingresar disponibilidad</a></li>
-            <li><a href="/salir">Cerrar Sesión</a></li>
+
           </ul>
       <form class="navbar-form navbar-right">
-            <button align="right" type="logout" class="btn btn-primary">Cerrar sesión</button>
+            <!--<button align="right" type="logout" class="btn btn-primary"><a href="/index">Cerrar Sesión</a></button>-->
+            <ul class="nav navbar-nav">
+
+            <li><a href="/salir">Cerrar Sesión</a></li>
+          </ul>
           </form>
         </div><!--/.nav-collapse -->
       </div>
@@ -56,20 +60,30 @@
 </div>
 
 <form id="form1" name="form1" method="post" class="form-horizontal"><center>
-
-
   <table width="380" border="0" cellspacing="1" cellpadding="1">
-    
-   
-  
+
+    <tr>
+      <td width="11">&nbsp;</td>
+      <td width="77">&nbsp;</td>
+      <td width="4">&nbsp;</td>
+      <td width="228">&nbsp;</td>
+      <td width="51">&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td class="letra1">&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
     <tr>
 
       <td>&nbsp;</td>
       <td class="letra1">Fecha:</td>
-      <td></td>
+      <td>:</td>
       <td><input type="date" name="x_fecha1" id="x_fecha1" class="form-control" ></td>
       <td>&nbsp;</td>
-	  
+
     </tr>
     <tr>
       <td>&nbsp;</td>
@@ -81,7 +95,7 @@
     <tr>
       <td>&nbsp;</td>
       <td class="letra1">Petrolero</td>
-      <td></td>
+      <td>:</td>
       <td><select name="slc_petrolero" class="form-control" id="slc_petrolero">
         <option value="0">(Todos los Equipos)</option>
         {% for usuario in usuarios %}
@@ -95,7 +109,7 @@
     <tr>
       <td>&nbsp;</td>
       <td class="letra1">Equipo</td>
-      <td></td>
+      <td>:</td>
       <td><select name="slc_equipo" class="form-control" id="slc_equipo">
         <option value="0">(Todos los Equipos)</option>
         {% for usuario2 in usuarios2 %}
@@ -112,7 +126,7 @@
     <tr>
       <td>&nbsp;</td>
       <td class="letra1">Predio</td>
-      <td></td>
+      <td>:</td>
       <td><select name="slc_predio" class="form-control" id="slc_predio">
         <option value="0">(Todos los Predios)</option>
         {% for usuario3 in usuarios3 %}
@@ -127,35 +141,35 @@
     <tr>
       <td>&nbsp;</td>
       <td class="letra1">Operador</td>
-      <td></td>
+      <td>:</td>
       <td><input name="txt_op" type="text" class="form-control" id="txt_op"></td>
       <td>&nbsp;</td>
     </tr>
     <tr>
       <td>&nbsp;</td>
       <td class="letra1">Horometro</td>
-      <td></td>
+      <td>:</td>
       <td><input name="txt_hrs" type="text" class="form-control" id="txt_hrs" ></td>
       <td>&nbsp;</td>
     </tr>
     <tr>
       <td>&nbsp;</td>
       <td class="letra1">Kilometraje</td>
-      <td></td>
+      <td>:</td>
       <td><input name="txt_km" type="text" class="form-control" id="txt_km" ></td>
       <td>&nbsp;</td>
     </tr>
     <tr>
       <td>&nbsp;</td>
       <td class="letra1">Surtidor</td>
-      <td></td>
+      <td>:</td>
       <td><input name="txt_sur" type="text" class="form-control" id="txt_sur"></td>
       <td>&nbsp;</td>
     </tr>
     <tr>
       <td>&nbsp;</td>
       <td class="letra1">Litros</td>
-      <td><p></p></td>
+      <td><p>:</p></td>
       <td><input name="txt_lts" type="text" class="form-control" id="txt_lts" ></td>
       <td>&nbsp;</td>
     </tr>
@@ -163,13 +177,17 @@
       <td>&nbsp;</td>
       <td class="letra1">&nbsp;</td>
       <td>&nbsp;</td>
-	  
       <td><input name="submit" type="submit" class="btn btn-lg btn-success" id="submit" formaction="ingresa_petroleo" title="Confirmar" value="Confirmar"></td>
       <td>&nbsp;</td>
     </tr>
-    
+    <tr>
+      <td>&nbsp;</td>
+      <td class="letra1">&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
   </table>
-  
 </center>
 </form>
 

@@ -4,8 +4,8 @@
 <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="">
-  <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+	<meta name="description" content="">
+	<link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="http://getbootstrap.com/examples/starter-template/starter-template.css" rel="stylesheet">
@@ -35,18 +35,22 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-         <a href="/"class="navbar-brand">Pirineos</a>
+         <a href="/index"class="navbar-brand">Pirineos</a>
 
 
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li> <a href="/ingresar_carga">Ingresar información de carga</a></li>
+            <li> <a href="/ingresar_carga">Ingresar Carga de Petróleo</a></li>
             <li><a href="/ingresar_disponibilidad">Ingresar disponibilidad</a></li>
-            <li><a href="/salir">Cerrar Sesión</a></li>
+            <!--<li><a href="/salir" style="background-color:#0000a0">Cerrar Sesión</a></li>-->
           </ul>
       <form class="navbar-form navbar-right">
-            <button align="right" type="logout" class="btn btn-primary">Cerrar sesión</button>
+            <!--<button align="right" type="logout" class="btn btn-primary">Cerrar sesión</button>-->
+            <ul class="nav navbar-nav">
+
+            <li><a href="/salir">Cerrar Sesión</a></li>
+          </ul>
           </form>
         </div><!--/.nav-collapse -->
       </div>
@@ -59,7 +63,7 @@
     <label for="dispo" class="col-sm-4 control-label">FECHA</label>
     <div class="col-sm-4">
 
-    <input type="date" name="x_fecha1" id="x_fecha1" class="form-control" >
+	  <input type="date" name="x_fecha1" id="x_fecha1" class="form-control" >
 
     </div>
   </div>
