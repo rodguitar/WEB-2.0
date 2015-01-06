@@ -54,110 +54,138 @@
 <div class="page-header">
 <h1><center>Ingreso de información de carga</center></h1>
 </div>
-<div align="center">
-<form class="form-horizontal" role="form">
 
-  <div class="form-group">
-    <label for="fecha" class="col-sm-4 control-label">Fecha</label>
-    <div class="col-sm-4">
-    <input type="date" name="x_fecha1" id="x_fecha1" class="form-control">
-
-    </div>
-  </div>
-
-  <div class="form-group">
-    <label for="nvale" class="col-sm-4 control-label">Nº Vale</label>
-    <div class="col-sm-4">
-
-    <input type="text" name="txt_nval" type="text" class="form-control" id="txt_nval" >
-
-    </div>
-  </div>
-
-  <div class="form-group">
-    <label for="petrolero" class="col-sm-4 control-label">Petrolero</label>
-    <div class="col-sm-4">
-
-    <select name="slc_petrolero" class="form-control" id="slc_petrolero">
+<form id="form1" name="form1" method="post"><center>
+  <table width="380" border="0" cellspacing="1" cellpadding="1">
+    <tr>
+      <td colspan="5" align="center" class="titulo1">Ingreso de Información de Carga</td>
+    </tr>
+    <tr>
+      <td width="11">&nbsp;</td>
+      <td width="77">&nbsp;</td>
+      <td width="4">&nbsp;</td>
+      <td width="228">&nbsp;</td>
+      <td width="51">&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td class="letra1">&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td class="letra1">Fecha:</td>
+      <td>:</td>
+      <td><input type="date" name="x_fecha1" id="x_fecha1" class="letra1" ></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td class="letra1">Nº vale</td>
+      <td></td>
+      <td><input name="txt_nval" type="text" class="letra1" id="txt_nval" ></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td class="letra1">Petrolero</td>
+      <td>:</td>
+      <td><select name="slc_petrolero" class="letra1" id="slc_petrolero">
         <option value="0">(Todos los Equipos)</option>
         {% for usuario in usuarios %}
-          <option>{{'%s' % usuario[2] }}</option>
+          <option>{{ '%s' % usuario[2] }}</option>
         {% endfor %}
-      </select>
+      </select></td>
+      <td>&nbsp;</td>
+    </tr>
 
-    </div>
-  </div>
 
-  <div class="form-group">
-    <label for="equipo" class="col-sm-4 control-label">Equipo</label>
-    <div class="col-sm-4">
-
-    <select name="slc_equipo" class="form-control" id="slc_equipo">
+    <tr>
+      <td>&nbsp;</td>
+      <td class="letra1">Equipo</td>
+      <td>:</td>
+      <td><select name="slc_equipo" class="letra1" id="slc_equipo">
         <option value="0">(Todos los Equipos)</option>
         {% for usuario2 in usuarios2 %}
-          <option>{{ '%s' % usuario2[2]}}</option>
+          <option  >{{ '%s' % usuario2[2]}}</option>
         {% endfor %}
 
-      </select>
+      </select></td>
+      <td>&nbsp;</td>
+    </tr>
 
-    </div>
-  </div>
 
-  <div class="form-group">
-    <label for="predio" class="col-sm-4 control-label">Predio</label>
-    <div class="col-sm-4">
 
-  <select name="slc_predio" class="form-control" id="slc_predio">
+
+    <tr>
+      <td>&nbsp;</td>
+      <td class="letra1">Predio</td>
+      <td>:</td>
+      <td><select name="slc_predio" class="letra1" id="slc_predio">
         <option value="0">(Todos los Predios)</option>
         {% for usuario3 in usuarios3 %}
-          <option>{{ '%s' % usuario3[2] }}</option>
+          <option >{{ '%s' % usuario3[2] }}</option>
         {% endfor %}
-      </select>
+      </select></td>
+      <td>&nbsp;</td>
+    </tr>
 
-    </div>
-  </div>
 
-  <div class="form-group">
-    <label for="operador" class="col-sm-4 control-label">Operador</label>
-    <div class="col-sm-4">
 
-       <input name="txt_op" type="text" class="form-control" id="txt_op">
-    </div>
-  </div>
-
-  <div class="form-group">
-    <label for="horometro" class="col-sm-4 control-label">Horometro</label>
-    <div class="col-sm-4">
-
-       <input name="txt_hrs" type="text" class="form-control" id="txt_hrs" >
-    </div>
-  </div>
-
-  <div class="form-group">
-    <label for="kilometraje" class="col-sm-4 control-label">Kilometraje</label>
-    <div class="col-sm-4">
-
-       <input name="txt_km" type="text" class="form-control" id="txt_km" >
-    </div>
-  </div>
-
-  <div class="form-group">
-    <label for="Surtidor" class="col-sm-4 control-label">Surtidor</label>
-    <div class="col-sm-4">
-
-       <input name="txt_sur" type="text" class="form-control" id="txt_sur">
-    </div>
-  </div>
-
-  <div class="form-group">
-    <label for="Litros" class="col-sm-4 control-label">Litros</label>
-    <div class="col-sm-4">
-
-       <input name="txt_lts" type="text" class="form-control" id="txt_lts" >
-    </div>
-  </div>
-
+    <tr>
+      <td>&nbsp;</td>
+      <td class="letra1">Operador</td>
+      <td>:</td>
+      <td><input name="txt_op" type="text" class="letra1" id="txt_op"></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td class="letra1">Horometro</td>
+      <td>:</td>
+      <td><input name="txt_hrs" type="text" class="letra1" id="txt_hrs" ></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td class="letra1">Kilometraje</td>
+      <td>:</td>
+      <td><input name="txt_km" type="text" class="letra1" id="txt_km" ></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td class="letra1">Surtidor</td>
+      <td>:</td>
+      <td><input name="txt_sur" type="text" class="letra1" id="txt_sur"></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td class="letra1">Litros</td>
+      <td><p>:</p></td>
+      <td><input name="txt_lts" type="text" class="letra1" id="txt_lts" ></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td class="letra1">&nbsp;</td>
+      <td>&nbsp;</td>
+      <td><input name="submit" type="submit" id="submit" formaction="ingresa_petroleo" title="Confirmar" value="Confirmar"></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td class="letra1">&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+  </table>
+</center>
 </form>
-<input class="btn btn-lg btn-success" name="submit" type="submit" id="submit" formaction="ingresa_petroleo" title="Confirmar" value="Agregar">
+
 </body>
 </html>
