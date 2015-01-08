@@ -153,6 +153,17 @@ def ingresar_carga():
 
     return render_template('form_ingreso_carga.html',usuarios=usuarios,usuarios2=usuarios2,usuarios3=usuarios3)
 
+#funcion que muestra un resumen de las disponibilidad de los equipos
+@app.route('/disponibilidad',methods=['GET','POST'])
+def disponibilidad():
+
+    import sqlite3
+    conn = sqlite3.connect('pirineosBD.sqlite')
+    c = conn.cursor()
+    resumenes_disponibilidad = c.execute('SELECT disponibilidad.equipo ,equipos.cod_radial, tipo_equipos.nombre_equipo ,disponibilidad.estado , sum(disponibilidad.estado)/2,(count(disponibilidad.estado)/2)-(sum(disponibilidad.estado)/2),count(disponibilidad.estado)/2 FROM disponibilidad INNER JOIN equipos ON disponibilidad.equipo  = equipos.patente INNER JOIN tipo_equipos ON tipo_equipos.Id=equipos.tipo_equipo  WHERE disponibilidad.fecha >= (SELECT fecha_inicio from ciclos where date() between fecha_inicio and fecha_termino) GROUP BY  disponibilidad.equipo  ORDER BY disponibilidad.equipo')
+    return render_template('resumen_disponibilidad.html',resumenes_disponibilidad=resumenes_disponibilidad)
+
+
 #Cierra Sesion
 @app.route('/salir')
 def salir():
