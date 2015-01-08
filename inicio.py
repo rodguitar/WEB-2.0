@@ -153,6 +153,27 @@ def ingresar_carga():
 
     return render_template('form_ingreso_carga.html',usuarios=usuarios,usuarios2=usuarios2,usuarios3=usuarios3)
 
+#funcion que muestra un resumen de las disponibilidad de los equipos
+@app.route('/disponibilidad',methods=['GET','POST'])
+def disponibilidad():
+
+    import sqlite3
+    conn = sqlite3.connect('pirineosBD.sqlite')
+    c = conn.cursor()
+    resumenes_disponibilidad = c.execute('SELECT disponibilidad.equipo ,equipos.cod_radial, tipo_equipos.nombre_equipo ,disponibilidad.estado , sum(disponibilidad.estado)/2,(count(disponibilidad.estado)/2)-(sum(disponibilidad.estado)/2),count(disponibilidad.estado)/2 FROM disponibilidad INNER JOIN equipos ON disponibilidad.equipo  = equipos.patente INNER JOIN tipo_equipos ON tipo_equipos.Id=equipos.tipo_equipo  WHERE disponibilidad.fecha >= (SELECT fecha_inicio from ciclos where date() between fecha_inicio and fecha_termino) GROUP BY  disponibilidad.equipo  ORDER BY disponibilidad.equipo')
+    return render_template('resumen_disponibilidad.html',resumenes_disponibilidad=resumenes_disponibilidad)
+
+
+#Funcion que obtiene valores de la BD para ingresarlos en los graficos del tablero de la pagina principal
+def tablero():
+
+    import sqlite3
+    conn = sqlite3.connect('pirineosBD.sqlite')
+    c = conn.cursor()
+    petroleo = c.execute('SELECT equipo,(max(kilometraje)-min(kilometraje)), sum(litros)  FROM petroleo_vale GROUP BY  equipo  ORDER BY equipo')
+    disponibilidad = c.execute('SELECT equipo,sum(estado)/2,count(estado)/2  FROM disponibilidad  GROUP BY  equipo  ORDER BY equipo')
+    return render_template('index.html',petroleo=petroleo,disponibilidad=disponibilidad)
+
 #Cierra Sesion
 @app.route('/salir')
 def salir():
