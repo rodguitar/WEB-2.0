@@ -9,6 +9,7 @@ import hashlib
 app = Flask(__name__)
 app.secret_key="clave admin"
 
+#Carga el Login
 @app.route('/',methods=['GET','POST'])
 def login():
     import sqlite3
@@ -45,7 +46,7 @@ def login():
 
     return render_template('login.html',error=error)
 
-
+#Carga el menú principal
 @app.route('/index')
 def inicio():
     if 'username' in session:
@@ -59,8 +60,9 @@ def inicio():
     ciclos = c.execute('SELECT nombre_ciclo FROM ciclos')
     return render_template('index.html',ciclos=ciclos)
 
+#Función que ingresa cargas de petróleo
 @app.route('/ingresa_petroleo', methods=['GET', 'POST'])
-def insertar():
+def ingresa_petroleo():
     nvale = request.form['txt_nval']
     fecha = request.form['x_fecha1']
     petrolero = request.form['slc_petrolero']
@@ -81,8 +83,29 @@ def insertar():
     conn.close()
     return redirect(url_for('ingresar_carga'))
 
+
+# Funcion que ingresa todas las disponibilidades con o sin novedad
+@app.route('/ingresa_disponibilidad', methods=['GET', 'POST'])
+def ingresa_disponibilidad():
+
+    import sqlite3
+    conn = sqlite3.connect('pirineosBD.sqlite')
+    c = conn.cursor()
+
+    equipos_aux = c.execute('SELECT Id,patente,cod_radial FROM  equipos WHERE tipo_equipo in (5,8,18,13,12,10,9,7)  AND estado = 0  ')
+
+    for equipo_aux in equipos_aux:
+        PatenteE = equipo_aux[2]
+        EstadoE = request.form[equipo_aux[2]]
+        FechaE  = request.form['x_fecha1']
+        c.execute('INSERT INTO disponibilidad (equipo,estado,fecha) values (?,?,?)', [PatenteE,EstadoE,FechaE])
+
+    conn.commit()
+    conn.close()
+    return redirect(url_for('ingresar_disponibilidad'))
+
 @app.route('/ingresar_disponibilidad',methods=['GET','POST'])
-def disponibilidad_equipos():
+def ingresar_disponibilidad():
 
     if 'username' in session:
         a = 0;
@@ -96,6 +119,7 @@ def disponibilidad_equipos():
 
     return render_template('form_disponibilidad_equipos.html',equipos=equipos)
 
+#funcion que muestra un resumen de las cargas de petroleo
 @app.route('/petroleo',methods=['GET','POST'])
 def resumen_petroleo():
     if 'username' in session:
@@ -109,6 +133,7 @@ def resumen_petroleo():
     resumenes = c.execute('SELECT petroleo_vale.equipo ,equipos.cod_radial, tipo_equipos.nombre_equipo, sum(petroleo_vale.litros) as litros FROM petroleo_vale INNER JOIN equipos ON petroleo_vale.equipo  = equipos.patente INNER JOIN tipo_equipos ON tipo_equipos.Id=equipos.tipo_equipo  GROUP BY  petroleo_vale.equipo  ORDER BY petroleo_vale.equipo')
     return render_template('resumen_petroleo.html',resumenes=resumenes)
 
+#funcion que busca datos de equipos en BD para insertarlos en combobox del html del ingreso de carga
 @app.route('/ingresar_carga')
 def ingresar_carga():
 
@@ -128,6 +153,7 @@ def ingresar_carga():
 
     return render_template('form_ingreso_carga.html',usuarios=usuarios,usuarios2=usuarios2,usuarios3=usuarios3)
 
+#Cierra Sesion
 @app.route('/salir')
 def salir():
     session.pop('username', None)
