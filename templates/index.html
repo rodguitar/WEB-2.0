@@ -92,27 +92,19 @@
 
       </div>
 
-    <center><table id="tablaRequisitos" class="table table-condensed">
-        <tbody>
-<tr>
-    <td class="">Periodo</td>
+   <script type="text/javascript">
 
-    <td>
-     <select name="slc_periodo" class="letra1" id="slc_periodo" >
-      {% for ciclo in ciclos %}
-          <option >{{ '%s' % ciclo[0] }}</option>
-        {% endfor %}
-     </select>
-     </td>
+      function obtieneD(fecha) {
 
-      <td>
-      <input type="button" name="button" id="button" value="Consultar" onClick="obtenerRegistros()">
-    </td>
-</tr>
+        return 100;
+      }
+</script>
+<script type="text/javascript">
 
-</tbody>
-</table>
-
+      function obtieneT(fecha) {
+        return 100;
+      }
+</script>
 
 
 
@@ -128,7 +120,7 @@
 </table>
 <center><table id="tablaLinks">
 <tr>
-    <td ><a href="disponibilidad_transporte.php">DISPONIBILIDAD</a></td>
+    <td ><a href="/disponibilidad">DISPONIBILIDAD</a></td>
     <td class="titulo1" width = 200 >&nbsp;</td>
     <td ><a href="/petroleo">PETROLEO</a></td>
 </tr>
