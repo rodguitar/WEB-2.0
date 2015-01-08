@@ -164,6 +164,16 @@ def disponibilidad():
     return render_template('resumen_disponibilidad.html',resumenes_disponibilidad=resumenes_disponibilidad)
 
 
+#Funcion que obtiene valores de la BD para ingresarlos en los graficos del tablero de la pagina principal
+def tablero():
+
+    import sqlite3
+    conn = sqlite3.connect('pirineosBD.sqlite')
+    c = conn.cursor()
+    petroleo = c.execute('SELECT equipo,(max(kilometraje)-min(kilometraje)), sum(litros)  FROM petroleo_vale GROUP BY  equipo  ORDER BY equipo')
+    disponibilidad = c.execute('SELECT equipo,sum(estado)/2,count(estado)/2  FROM disponibilidad  GROUP BY  equipo  ORDER BY equipo')
+    return render_template('index.html',petroleo=petroleo,disponibilidad=disponibilidad)
+
 #Cierra Sesion
 @app.route('/salir')
 def salir():
