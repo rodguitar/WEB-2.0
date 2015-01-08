@@ -1,12 +1,11 @@
 <!doctype html>
 <html>
 <head>
-<head>
 <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="">
-  <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+	<meta name="description" content="">
+	<link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="http://getbootstrap.com/examples/starter-template/starter-template.css" rel="stylesheet">
@@ -22,13 +21,13 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-  </head>
+  
 </head>
 
 
 <body>
 
-<nav class="navbar navbar-inverse navbar-fixed-top">
+	<nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -47,16 +46,16 @@
             <li><a href="/ingresar_disponibilidad">Ingresar disponibilidad</a></li>
 
           </ul>
-      <form class="navbar-form navbar-right">
-            <!--<button align="right" type="logout" class="btn btn-primary"><a href="/index">Cerrar Sesión</a></button>-->
-            <ul class="nav navbar-nav">
+			<form class="navbar-form navbar-right">
+				
+				<ul class="nav navbar-nav">
 
-            <li><a href="/salir">Cerrar Sesión</a></li>
-          </ul>
-          </form>
+				<li><a href="/salir">Cerrar Sesión</a></li>
+			  </ul>
+			</form>
         </div><!--/.nav-collapse -->
       </div>
-</nav>
+	</nav>
 
 <div class="page-header">
 <h1><center>Ingreso de Disponibilidad</center></h1>
@@ -64,58 +63,56 @@
   <center><table id="tablaRequisitos">
 
 
-<tr>
-    <td class="letra4">DISPONIBILIDAD</td>
-    <td>
-     <input type="date" name="x_fecha1" id="x_fecha1" class="form-control" >
-     </td>
-    <td>&nbsp;</td>
+	<tr>
+		<td class="letra4">DISPONIBILIDAD</td>
+		<td>
+			<input type="date" name="x_fecha1" id="x_fecha1" class="form-control" >
+		</td>
+		<td>&nbsp;</td>
 
-</tr>
-<tr>
-    <td class="titulo1">&nbsp;</td>
-</tr>
-
-
+	</tr>
+	<tr>
+		<td class="titulo1">&nbsp;</td>
+	</tr>
 
 </table>
 
-  <tr>
-    <td class="titulo1">&nbsp;</td>
-</tr>
+	<tr>
+		<td class="titulo1">&nbsp;</td>
+	</tr>
 
 <form id="form_nuevo_disp" name="form_nuevo_disp" method="post" >
-<div class="container">
-<div class="col-md-11">
-<table id="tablaRegistros" BORDER="1" class="table table-bordered">
-<tr>
-   <td bgcolor="#CCCCCC">PATENTE</td>
-   <td bgcolor="#CCCCCC">CODIGO RADIAL</td>
-   <td align="center" bgcolor="#CCCCCC">ESTADO</td>
-</tr>
-{% for equipo in equipos %}
-<tr>
-      <td>{{ '%s' % equipo[1] }}</td>
-      <td>{{ '%s' % equipo[2] }}</td>
-      <td><select name="{{ '%s' % equipo[2] }}" class="form-control" id="{{ '%s' % equipo[2] }}" value="0">
-        <option value="1">Sin novedad</option>
-        <option value="0">Con Novedad</option>
-      </select></td>
-</tr>
-{% endfor %}
+	<div class="container">
+	<div class="col-md-11">
+	<table id="tablaRegistros" BORDER="1" class="table table-bordered">
+		<tr>
+		   <td bgcolor="#CCCCCC">PATENTE</td>
+		   <td bgcolor="#CCCCCC">CODIGO RADIAL</td>
+		   <td align="center" bgcolor="#CCCCCC">ESTADO</td>
+		</tr>
+	{% for equipo in equipos %}
+	<tr>
+		  <td>{{ '%s' % equipo[1] }}</td>
+		  <td>{{ '%s' % equipo[2] }}</td>
+		  <td><select name="{{ '%s' % equipo[2] }}" class="form-control" id="{{ '%s' % equipo[2] }}" value="0">
+			<option value="1">Sin novedad</option>
+			<option value="0">Con Novedad</option>
+		  </select></td>
+	</tr>
+	{% endfor %}
 
-<script>
-function muestra(){
-var aux =document.getElementById("VG-2109").value;
-alert(aux);
-}
-</script>
+	<script>
+	function muestra(){
+	var aux =document.getElementById("VG-2109").value;
+	alert(aux);
+	}
+	</script>
 
-</table>
-</div>
-    </div>
-<td>&nbsp;</td>
-<br>
+	</table>
+	</div>
+		</div>
+	<td>&nbsp;</td>
+	<br>
 </form>
 <td><input type="submit" class="btn btn-lg btn-success" name="submit" formaction="ingresa_disponibilidad" value="Confirmar"/></td>
 <br>

@@ -44,64 +44,66 @@
 </script>
 </head>
 <body>
-  <center><table id="titulo">
-<tr>
-   <center><td class="titulo1">TABLERO</td>
-</tr>
-</table>
+  <center>
+	<table id="titulo">
+		<tr>
+		   <center><td class="titulo1">TABLERO</td>
+		</tr>
+	</table>
 
 
- <center><table id="tablaRequisitos">
-<tr>
-    <td class="letra1">Periodo</td>
+ <center>
+	<table id="tablaRequisitos">
+		<tr>
+			<td class="letra1">Periodo</td>
 
-    <td>
-     <select name="slc_periodo" class="letra1" id="slc_periodo" >
-      <?
-    $sql = "SELECT `Id` , `nombre_ciclo`,`fecha_inicio`,`fecha_termino`
-        FROM `ciclos`
-        GROUP BY `fecha_inicio` DESC;";
-    $result = mysql_db_query($base_de_datos,$sql);
-      
-    while ($row = mysql_fetch_row($result))
-    {
-      ?>
-      <option value="<? $row[0] ?>"><? echo $row[1] ?></option>
-      <? 
+			<td>
+			 <select name="slc_periodo" class="letra1" id="slc_periodo" >
+			  <?
+			$sql = "SELECT `Id` , `nombre_ciclo`,`fecha_inicio`,`fecha_termino`
+				FROM `ciclos`
+				GROUP BY `fecha_inicio` DESC;";
+			$result = mysql_db_query($base_de_datos,$sql);
+			  
+			while ($row = mysql_fetch_row($result))
+			{
+			  ?>
+			  <option value="<? $row[0] ?>"><? echo $row[1] ?></option>
+			  <? 
 
-    }
-    ?>
-     </select>
-     </td>
-    <td>&nbsp;</td>
-      <td><div align="left">
-      <input type="button" name="button" id="button" value="Consultar" onClick="obtenerRegistros()">
-    </div></td>
-</tr>
-<tr>
-    <td class="titulo1">&nbsp;</td>
-</tr>
-</table>
+			}
+			?>
+			 </select>
+			 </td>
+			<td>&nbsp;</td>
+			  <td><div align="left">
+			  <input type="button" name="button" id="button" value="Consultar" onClick="obtenerRegistros()">
+			</div></td>
+		</tr>
+		<tr>
+			<td class="titulo1">&nbsp;</td>
+		</tr>
+	</table>
 
+<center>
+	<table id="tablaIndicadores">
 
-
-<center><table id="tablaIndicadores">
-
-<tr>
-  <td class="titulo1" width = 20>&nbsp;</td>
-    <center><td ><div id="chart_div" ></div></td>
-</tr>
-<tr>
-    <td class="titulo1" >&nbsp;</td>
-</tr>
-</table>
-<center><table id="tablaLinks">
-<tr>
-    <td ><a href="disponibilidad_transporte.php">DISPONIBILIDAD</a></td>
-    <td class="titulo1" width = 200 >&nbsp;</td>
-    <td ><a href="petroleo_transporte.php">PETROLEO</a></td>
-</tr>
-</table>
+		<tr>
+		  <td class="titulo1" width = 20>&nbsp;</td>
+			<center><td ><div id="chart_div" ></div></td>
+		</tr>
+		<tr>
+			<td class="titulo1" >&nbsp;</td>
+		</tr>
+	</table>
+<center>
+	<table id="tablaLinks">
+		<tr>
+			<td ><a href="disponibilidad_transporte.php">DISPONIBILIDAD</a></td>
+			<td class="titulo1" width = 200 >&nbsp;</td>
+			<td ><a href="petroleo_transporte.php">PETROLEO</a></td>
+		</tr>
+	</table>
 
 
 </body>
